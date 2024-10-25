@@ -34,6 +34,27 @@ function Main() {
                 architecto eius quis quibusdam fugiat dicta.
               </p>
 
+              <h3 className="text-xl font-semibold mb-4 text-gray-800">
+            Horaires d'ouverture
+          </h3>
+          <div className="space-y-2 text-gray-600">
+            <p className="flex justify-between">
+              <span>Lundi - Vendredi</span>
+              <span>10h - 19h</span>
+            </p>
+            <p className="flex justify-between">
+              <span>Samedi</span>
+              <span>10h - 17h</span>
+            </p>
+            <p className="flex justify-between">
+              <span>Dimanche</span>
+              <span>Fermé</span>
+            </p>
+        </div>
+       <div>
+        <p> Telephone </p>
+        <span>04 88 88 88 88</span></div>
+              
               <a
                 href="#"
                 className="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"

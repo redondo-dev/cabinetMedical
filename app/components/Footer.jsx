@@ -8,7 +8,7 @@ function Footer() {
     <div
       className="flex flex-col items-center gap-4 rounded-lg bg-indigo-600 p-6 shadow-lg sm:flex-row sm:justify-between"
     >
-      <strong className="text-xl text-white sm:text-xl"> Make Your Next Career Move! </strong>
+      <strong className="text-xl text-white sm:text-xl"> Centre Lazer Esthetique Marseille 14 eme! </strong>
 
       <a
         className="inline-flex items-center gap-2 rounded-full border border-white bg-white px-8 py-3 text-indigo-600 hover:bg-transparent hover:text-white focus:outline-none focus:ring active:bg-white/90"
@@ -283,7 +283,7 @@ function Footer() {
         </div>
 
         <p className="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-right">
-          Copyright &copy; 2022. All rights reserved.
+          Copyright &copy; 2024. All rights reserved.
         </p>
       </div>
     </div>

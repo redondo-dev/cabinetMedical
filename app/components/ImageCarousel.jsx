@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Image from 'next/image'; // Import du composant Image de Next.js
+import Image from 'next/image'; 
 
 const ImageCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
