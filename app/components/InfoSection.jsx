@@ -44,7 +44,7 @@ const InfoSection = () => {
               ? "translate-x-0 opacity-100"
               : "translate-x-full opacity-0"
           } transition-all duration-700 bg-white p-6 rounded-lg shadow-xl w-full mb-6 
-          md:mb-0 md:max-w-sm md:absolute md:right-8 md:top-16 md:z-10`}
+          md:mb-0 md:max-w-sm md:absolute md:right-8 md:top-12 md:z-10`}
         >
           <h2 className="text-2xl font-bold mb-3 text-gray-800">
             Notre Cabinet
@@ -64,6 +64,7 @@ const InfoSection = () => {
 
         {/* Image centrale */}
         <div className="relative w-full max-w-3xl mx-auto aspect-[4/3] rounded-lg overflow-hidden shadow-2xl mb-6">
+        <div className="absolute inset-0 bg-black/10 md:z-0"></div>
           <Image
             src="/epilation.jpg"
             alt="Cabinet médical"

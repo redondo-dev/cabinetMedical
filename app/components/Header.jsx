@@ -125,7 +125,7 @@ function Header() {
         {isOpen && (
           <div className="md:hidden">
             <nav aria-label="Global">
-              <ul className="flex flex-col items-center bg-blue-200 gap-4 p-4">
+              <ul className="flex flex-col items-center bg-blue-200 rounded-[30px] gap-4 p-4">
                 <li>
                   <Link
                     href="/lazer"
