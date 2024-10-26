@@ -1,5 +1,5 @@
-import { Resend } from 'resend';
-import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from "resend";
+import { NextRequest, NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -8,8 +8,8 @@ export async function POST(req: NextRequest) {
     const { firstName, lastName, email, subject, message } = await req.json();
 
     const data = await resend.emails.send({
-      from: 'votre-email@votredomaine.com',
-      to: 'destination@votredomaine.com',
+      from: "contact@cabinetmedical-nine.com",
+      to: "riad.reda.fethi@gmail.com",
       subject: `Nouveau message: ${subject}`,
       html: `
         <h2>Nouveau message de contact</h2>
@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
         <p><strong>Sujet:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
-      `
+      `,
     });
 
     return NextResponse.json(data);

@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Construction from "../components/Construction"
 function injection() {
   return (
-    <div> page injection</div>
+    <div> page injection
+        <Construction />
+    </div>
   )
 }
 
