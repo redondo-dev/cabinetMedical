@@ -1,27 +1,26 @@
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Image from 'next/image'; 
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const ImageCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
-      img: "/doctor.jpg", 
-      title: "Medecin",
-      description: "Fathia belkharoubi"
+      img: "/jeune-infirmiere.jpg",
+      title: "Infirmiere",
+      description: " Camilya Belkharoubi",
     },
     {
-      img: "/doctor.jpg", 
+      img: "/medecin.avif",
       title: "Medecin",
-     description: "Belkharoubi Fathia",
-
+      description: "Belkharoubi Azziz",
     },
     {
       img: "/doctor.jpg",
       title: "Medecin",
-      description: "FATHIA BELKHAROUBI"
-    }
+      description: "FATHIA BELKHAROUBI",
+    },
   ];
 
   const nextSlide = () => {
@@ -38,13 +37,13 @@ const ImageCarousel = () => {
   }, []);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto " >
+    <div className="relative w-full max-w-4xl mx-auto ">
       <div className="relative w-full pt-[56.25%] overflow-hidden rounded-lg">
         {slides.map((slide, index) => (
           <div
             key={index}
             className={`absolute inset-0 w-full h-full transition-transform duration-500 ease-in-out ${
-              index === currentSlide ? 'translate-x-0' : 'translate-x-full'
+              index === currentSlide ? "translate-x-0" : "translate-x-full"
             }`}
           >
             <div className="relative w-full h-full">
@@ -58,7 +57,9 @@ const ImageCarousel = () => {
               />
             </div>
             <div className="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 text-white p-4 backdrop-blur-sm">
-              <h2 className="text-xl md:text-2xl font-bold mb-2">{slide.title}</h2>
+              <h2 className="text-xl md:text-2xl font-bold mb-2">
+                {slide.title}
+              </h2>
               <p className="text-sm md:text-base">{slide.description}</p>
             </div>
           </div>
@@ -85,7 +86,7 @@ const ImageCarousel = () => {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-2 h-2 rounded-full transition-all ${
-                index === currentSlide ? 'bg-white scale-125' : 'bg-white/50'
+                index === currentSlide ? "bg-white scale-125" : "bg-white/50"
               }`}
               aria-label={`Aller à l'image ${index + 1}`}
             />
