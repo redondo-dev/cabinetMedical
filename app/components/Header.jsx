@@ -5,16 +5,88 @@ import Link from "next/link";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [activeNestedSubmenu, setActiveNestedSubmenu] = useState(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const toggleSubmenu = (submenu) => {
+    setActiveSubmenu(activeSubmenu === submenu ? null : submenu);
+    setActiveNestedSubmenu(null);
+  };
+
+  const toggleNestedSubmenu = (e, submenu) => {
+    e.stopPropagation();
+    setActiveNestedSubmenu(activeNestedSubmenu === submenu ? null : submenu);
+  };
+
+  const menuItems = [
+    {
+      title: "LE CENTRE",
+      link: "/centre",
+      submenu: [
+        { title: "Consultations Médicales", link: "/centre/consultations" },
+      ],
+    },
+    {
+      title: "ÉPILATION LASER",
+      link: "/laser",
+      submenu: [
+        { 
+          title: "Hommes",
+          link: "/laser/hommes",
+          submenu: [
+            { title: "Visage", link: "/laser/hommes/visage" },
+            { title: "Torse", link: "/laser/hommes/torse" },
+            { title: "Dos", link: "/laser/hommes/dos" },
+            { title: "Bras", link: "/laser/hommes/bras" },
+            { title: "Jambes", link: "/laser/hommes/jambes" },
+            { title: "Aisselles", link: "/laser/hommes/aisselles" },
+            { title: "Maillot", link: "/laser/hommes/maillot" },
+          ]
+        },
+        { 
+          title: "Femmes",
+          link: "/laser/femmes",
+          submenu: [
+            { title: "Visage", link: "/laser/femmes/visage" },
+            { title: "Bras", link: "/laser/femmes/bras" },
+            { title: "Aisselles", link: "/laser/femmes/aisselles" },
+            { title: "Jambes", link: "/laser/femmes/jambes" },
+            { title: "Maillot", link: "/laser/femmes/maillot" },
+            { title: "Dos", link: "/laser/femmes/dos" },
+          ]
+        },
+      ],
+    },
+    {
+      title: "INJECTION",
+      link: "/injection",
+    },
+    {
+      title: "QUALITÉ DE PEAU",
+      link: "/qualiteDePeau",
+    },
+    {
+      title: "HYDRAFACIAL",
+      link: "/hydrafacial",
+    },
+    {
+      title: "TARIFS",
+      link: "/tarifs",
+    },
+    {
+      title: "CONTACT",
+      link: "/contact",
+    },
+  ];
+
   return (
     <header className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
           <div className="flex-1">
             <Link href="/" className="block text-teal-600">
               <span className="sr-only">Home</span>
@@ -32,7 +104,6 @@ function Header() {
             </Link>
           </div>
 
-          {/* Menu Burger Button on Mobile */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -56,172 +127,56 @@ function Header() {
             </button>
           </div>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links with improved hover behavior */}
           <div className="hidden md:flex md:items-center md:gap-12">
             <nav aria-label="Global">
               <ul className="flex items-center gap-6 text-sm">
-                <li className="relative group">
-                  <Link
-                    href="/laser"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    ÉPILATION LASER
-                  </Link>
-                  <ul className="absolute left-0 hidden mt-2 bg-white border rounded-md shadow-lg group-hover:block">
-                    <li>
-                      <Link
-                        href="/laser/definitive"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Laser Définitif
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/laser/saisonaire"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Laser Saisonier
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="relative group">
-                  <Link
-                    href="/injection"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    INJECTION
-                  </Link>
-                  <ul className="absolute left-0 hidden mt-2 bg-white border rounded-md shadow-lg group-hover:block">
-                    <li>
-                      <Link
-                        href="/injection/acide"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Acide Hyaluronique
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/injection/toxine"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Toxine Botulique
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/injection/inducteur"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Inducteurs Tissulaires
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="relative group">
-                  <Link
-                    href="/qualiteDePeau"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    QUALITÉ DE PEAU
-                  </Link>
-                  <ul className="absolute left-0 hidden mt-2 bg-white border rounded-md shadow-lg group-hover:block">
-                    <li>
-                      <Link
-                        href="/qualiteDePeau/hollywood"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Hollywood Peel
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/qualiteDePeau/skinboosters"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Skinboosters
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/qualiteDePeau/peelings"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Peelings
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/qualiteDePeau/hydrafacial"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Hydrafacial
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="relative group">
-                  <Link
-                    href="/autres"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    AUTRES
-                  </Link>
-                  <ul className="absolute left-0 hidden mt-2 bg-white border rounded-md shadow-lg group-hover:block">
-                    <li>
-                      <Link
-                        href="/autres/pigmentaires"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Traitement Laser Pigmentaire
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/autres/vasculaires"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Traitement Laser Vasculaire
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="relative group">
-                  <Link
-                    href="/centre"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    LE CENTRE
-                  </Link>
-                  <ul className="absolute left-0 hidden mt-2 bg-white border rounded-md shadow-lg group-hover:block">
-                    <li>
-                      <Link
-                        href="/centre/consultations"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Consultations Médicales
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link
-                    href="/tarifs"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    TARIFS
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    CONTACT
-                  </Link>
-                </li>
+                {menuItems.map((item, index) => (
+                  <li key={index} className="relative group">
+                    <Link
+                      href={item.link}
+                      className="text-gray-500 hover:text-gray-500/75"
+                    >
+                      {item.title}
+                    </Link>
+                    {item.submenu && (
+                      <div className="absolute left-0 w-full">
+                        <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 delay-150">
+                          <ul className="absolute left-0 mt-2 bg-slate-300 border rounded-md shadow-lg min-w-[200px] z-50">
+                            {item.submenu.map((subItem, subIndex) => (
+                              <li key={subIndex} className="relative group/submenu">
+                                <Link
+                                  href={subItem.link}
+                                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                >
+                                  {subItem.title}
+                                </Link>
+                                {subItem.submenu && (
+                                  <div className="absolute left-full top-0 w-full">
+                                    <div className="invisible group-hover/submenu:visible opacity-0 group-hover/submenu:opacity-100 transition-all duration-300 delay-150">
+                                      <ul className="absolute left-0 mt-0 bg-slate-300 border rounded-md shadow-lg min-w-[200px]">
+                                        {subItem.submenu.map((nestedItem, nestedIndex) => (
+                                          <li key={nestedIndex}>
+                                            <Link
+                                              href={nestedItem.link}
+                                              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 whitespace-nowrap"
+                                            >
+                                              {nestedItem.title}
+                                            </Link>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>
@@ -232,62 +187,48 @@ function Header() {
           <div className="md:hidden">
             <nav aria-label="Global">
               <ul className="flex flex-col items-center bg-blue-200 rounded-[30px] gap-4 p-4">
-                <li>
-                  <Link
-                    href="/laser"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    ÉPILATION LASER
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/injection"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    INJECTION
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/qualiteDePeau"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    QUALITÉ DE PEAU
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/centre"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    LE CENTRE
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/autres"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    AUTRES
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/tarifs"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    TARIFS
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="text-gray-500 hover:text-gray-500/75"
-                  >
-                    CONTACT
-                  </Link>
-                </li>
+                {menuItems.map((item, index) => (
+                  <li key={index} className="w-full">
+                    <div className="flex flex-col items-center">
+                      <button
+                        onClick={() => item.submenu && toggleSubmenu(index)}
+                        className="text-gray-500 hover:text-gray-500/75 w-full text-center"
+                      >
+                        {item.title}
+                      </button>
+                      {item.submenu && activeSubmenu === index && (
+                        <ul className="mt-2 space-y-2 w-full">
+                          {item.submenu.map((subItem, subIndex) => (
+                            <li key={subIndex} className="w-full">
+                              <div className="flex flex-col items-center">
+                                <button
+                                  onClick={(e) => subItem.submenu && toggleNestedSubmenu(e, `${index}-${subIndex}`)}
+                                  className="text-gray-700 hover:text-gray-500 w-full text-center"
+                                >
+                                  {subItem.title}
+                                </button>
+                                {subItem.submenu && activeNestedSubmenu === `${index}-${subIndex}` && (
+                                  <ul className="mt-2 space-y-2 w-full bg-blue-100 rounded-lg p-2">
+                                    {subItem.submenu.map((nestedItem, nestedIndex) => (
+                                      <li key={nestedIndex}>
+                                        <Link
+                                          href={nestedItem.link}
+                                          className="block text-gray-600 hover:text-gray-400 text-center"
+                                        >
+                                          {nestedItem.title}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>
@@ -298,3 +239,4 @@ function Header() {
 }
 
 export default Header;
+
