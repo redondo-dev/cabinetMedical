@@ -23,15 +23,15 @@ function Main() {
 
             <div className="p-8 sm:p-16 lg:p-24">
               <h2 className="text-2xl font-bold sm:text-3xl">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Tempore, debitis.
+                Bienvenue dans votre centre d&apos;esthétique et de soins laser
               </h2>
 
               <p className="mt-4 text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquid, molestiae! Quidem est esse numquam odio deleniti,
-                beatae, magni dolores provident quaerat totam eos, aperiam
-                architecto eius quis quibusdam fugiat dicta.
+                Notre centre vous propose des traitements d&apos;épilation laser
+                définitive et des soins de la peau personnalisés pour sublimer
+                votre beauté naturelle. Grâce à notre équipe de professionnels
+                et à nos technologies de pointe, nous garantissons des soins
+                sûrs et efficaces, adaptés à chaque type de peau.
               </p>
 
               <h3 className="text-xl font-semibold mb-4 text-gray-800">
