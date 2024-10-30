@@ -34,7 +34,7 @@ function Header() {
       title: "ÉPILATION LASER",
       link: "/laser",
       submenu: [
-        { 
+        {
           title: "Hommes",
           link: "/laser/hommes",
           submenu: [
@@ -45,9 +45,9 @@ function Header() {
             { title: "Jambes", link: "/laser/hommes/jambes" },
             { title: "Aisselles", link: "/laser/hommes/aisselles" },
             { title: "Maillot", link: "/laser/hommes/maillot" },
-          ]
+          ],
         },
-        { 
+        {
           title: "Femmes",
           link: "/laser/femmes",
           submenu: [
@@ -57,7 +57,7 @@ function Header() {
             { title: "Jambes", link: "/laser/femmes/jambes" },
             { title: "Maillot", link: "/laser/femmes/maillot" },
             { title: "Dos", link: "/laser/femmes/dos" },
-          ]
+          ],
         },
       ],
     },
@@ -144,7 +144,10 @@ function Header() {
                         <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 delay-150">
                           <ul className="absolute left-0 mt-2 bg-slate-300 border rounded-md shadow-lg min-w-[200px] z-50">
                             {item.submenu.map((subItem, subIndex) => (
-                              <li key={subIndex} className="relative group/submenu">
+                              <li
+                                key={subIndex}
+                                className="relative group/submenu"
+                              >
                                 <Link
                                   href={subItem.link}
                                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
@@ -155,16 +158,18 @@ function Header() {
                                   <div className="absolute left-full top-0 w-full">
                                     <div className="invisible group-hover/submenu:visible opacity-0 group-hover/submenu:opacity-100 transition-all duration-300 delay-150">
                                       <ul className="absolute left-0 mt-0 bg-slate-300 border rounded-md shadow-lg min-w-[200px]">
-                                        {subItem.submenu.map((nestedItem, nestedIndex) => (
-                                          <li key={nestedIndex}>
-                                            <Link
-                                              href={nestedItem.link}
-                                              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 whitespace-nowrap"
-                                            >
-                                              {nestedItem.title}
-                                            </Link>
-                                          </li>
-                                        ))}
+                                        {subItem.submenu.map(
+                                          (nestedItem, nestedIndex) => (
+                                            <li key={nestedIndex}>
+                                              <Link
+                                                href={nestedItem.link}
+                                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 whitespace-nowrap"
+                                              >
+                                                {nestedItem.title}
+                                              </Link>
+                                            </li>
+                                          )
+                                        )}
                                       </ul>
                                     </div>
                                   </div>
@@ -183,6 +188,78 @@ function Header() {
         </div>
 
         {/* Mobile Menu */}
+{isOpen && (
+  <div className="md:hidden">
+    <nav aria-label="Global">
+      <ul className="bg-glass flex flex-col items-center gap-4 p-4">
+        {menuItems.map((item, index) => (
+          <li key={index} className="w-full">
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center w-full">
+                <Link
+                  href={item.link}
+                  className="text-gray-500 hover:text-gray-500/75 px-4 py-2"
+                >
+                  {item.title}
+                </Link>
+                {item.submenu && (
+                  <button
+                    onClick={() => toggleSubmenu(index)}
+                    className="ml-2 text-gray-500 hover:text-gray-500/75 p-2"
+                  >
+                    {activeSubmenu === index ? '▼' : '▶'}
+                  </button>
+                )}
+              </div>
+              {item.submenu && activeSubmenu === index && (
+                <ul className="bg-class mt-2 space-y-2 w-full">
+                  {item.submenu.map((subItem, subIndex) => (
+                    <li key={subIndex} className="w-full">
+                      <div className=" flex flex-col items-center">
+                        <div className="flex items-center justify-center w-full">
+                          <Link
+                            href={subItem.link}
+                            className="text-gray-700 hover:text-gray-500 px-4 py-2"
+                          >
+                            {subItem.title}
+                          </Link>
+                          {subItem.submenu && (
+                            <button
+                              onClick={(e) => toggleNestedSubmenu(e, `${index}-${subIndex}`)}
+                              className="ml-2 text-gray-700 hover:text-gray-500 p-2"
+                            >
+                              {activeNestedSubmenu === `${index}-${subIndex}` ? '▼' : '▶'}
+                            </button>
+                          )}
+                        </div>
+                        {subItem.submenu && activeNestedSubmenu === `${index}-${subIndex}` && (
+                          <ul className="mt-2 space-y-2 w-full bg-blue-100 rounded-lg p-2">
+                            {subItem.submenu.map((nestedItem, nestedIndex) => (
+                              <li key={nestedIndex} className="w-full">
+                                <Link
+                                  href={nestedItem.link}
+                                  className="block text-gray-600 hover:text-gray-400 text-center px-4 py-2"
+                                >
+                                  {nestedItem.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+)}
+
+        {/* Mobile Menu
         {isOpen && (
           <div className="md:hidden">
             <nav aria-label="Global">
@@ -190,37 +267,72 @@ function Header() {
                 {menuItems.map((item, index) => (
                   <li key={index} className="w-full">
                     <div className="flex flex-col items-center">
-                      <button
-                        onClick={() => item.submenu && toggleSubmenu(index)}
-                        className="text-gray-500 hover:text-gray-500/75 w-full text-center"
-                      >
-                        {item.title}
-                      </button>
+                      <div className="flex items-center justify-center w-full">
+                        <Link
+                          href={item.link}
+                          className="text-gray-500 hover:text-gray-500/75 px-4 py-2"
+                        >
+                          {item.title}
+                        </Link>
+                        {item.submenu && (
+                          <button
+                            onClick={() => toggleSubmenu(index)}
+                            className="ml-2 text-gray-500 hover:text-gray-500/75 p-2"
+                          >
+                            {activeSubmenu === index ? "▼" : "▶"}
+                          </button>
+                        )}
+                      </div>
                       {item.submenu && activeSubmenu === index && (
                         <ul className="mt-2 space-y-2 w-full">
                           {item.submenu.map((subItem, subIndex) => (
                             <li key={subIndex} className="w-full">
                               <div className="flex flex-col items-center">
-                                <button
-                                  onClick={(e) => subItem.submenu && toggleNestedSubmenu(e, `${index}-${subIndex}`)}
-                                  className="text-gray-700 hover:text-gray-500 w-full text-center"
-                                >
-                                  {subItem.title}
-                                </button>
-                                {subItem.submenu && activeNestedSubmenu === `${index}-${subIndex}` && (
-                                  <ul className="mt-2 space-y-2 w-full bg-blue-100 rounded-lg p-2">
-                                    {subItem.submenu.map((nestedItem, nestedIndex) => (
-                                      <li key={nestedIndex}>
-                                        <Link
-                                          href={nestedItem.link}
-                                          className="block text-gray-600 hover:text-gray-400 text-center"
-                                        >
-                                          {nestedItem.title}
-                                        </Link>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                )}
+                                <div className="flex items-center justify-center w-full">
+                                  <Link
+                                    href={subItem.link}
+                                    className="text-gray-700 hover:text-gray-500 px-4 py-2"
+                                  >
+                                    {subItem.title}
+                                  </Link>
+                                  {subItem.submenu && (
+                                    <button
+                                      onClick={(e) =>
+                                        toggleNestedSubmenu(
+                                          e,
+                                          `${index}-${subIndex}`
+                                        )
+                                      }
+                                      className="ml-2 text-gray-700 hover:text-gray-500 p-2"
+                                    >
+                                      {activeNestedSubmenu ===
+                                      `${index}-${subIndex}`
+                                        ? "▼"
+                                        : "▶"}
+                                    </button>
+                                  )}
+                                </div>
+                                {subItem.submenu &&
+                                  activeNestedSubmenu ===
+                                    `${index}-${subIndex}` && (
+                                    <ul className="mt-2 space-y-2 w-full bg-blue-100 rounded-lg p-2">
+                                      {subItem.submenu.map(
+                                        (nestedItem, nestedIndex) => (
+                                          <li
+                                            key={nestedIndex}
+                                            className="w-full"
+                                          >
+                                            <Link
+                                              href={nestedItem.link}
+                                              className="block text-gray-600 hover:text-gray-400 text-center px-4 py-2"
+                                            >
+                                              {nestedItem.title}
+                                            </Link>
+                                          </li>
+                                        )
+                                      )}
+                                    </ul>
+                                  )}
                               </div>
                             </li>
                           ))}
@@ -232,11 +344,10 @@ function Header() {
               </ul>
             </nav>
           </div>
-        )}
+        )} */}
       </div>
     </header>
   );
 }
 
 export default Header;
-
