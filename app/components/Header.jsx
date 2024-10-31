@@ -42,7 +42,7 @@ const MobileMenuButton = ({ isOpen, onClick }) => (
     {[1, 2, 3].map((i) => (
       <span
         key={i}
-        className={`block w-6 h-0.5 bg-red-600 transform transition-all duration-300 ease-in-out ${
+        className={`block w-6 h-0.5 transform transition-all duration-300 ease-in-out ${
           isOpen && i === 1
             ? "rotate-45 translate-y-2"
             : isOpen && i === 2
@@ -50,7 +50,7 @@ const MobileMenuButton = ({ isOpen, onClick }) => (
             : isOpen && i === 3
             ? "-rotate-45 -translate-y-2"
             : ""
-        }`}
+        } ${i === 1 || i === 3 || i === 2 ? (isOpen ? "bg-red-600" : "bg-green-800") : "bg-blue-500"}`}
       />
     ))}
   </button>
