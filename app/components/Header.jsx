@@ -144,7 +144,7 @@ function Header({ menuItems }) {
           <nav className="h-full overflow-y-auto pt-24 pb-6 px-6 bg-black bg-opacity-50 backdrop-blur-md">
             <ul className="space-y-4">
               {menuItems.map((item, index) => (
-                <li key={index} className="border-b border-gray-200 pb-4">
+                <li key={index} className="border-b border-red-500 pb-4">
                   <div className="flex flex-col">
                     <div className="flex items-center justify-between">
                       <NavigationLink
@@ -197,3 +197,4 @@ function Header({ menuItems }) {
 }
 
 export default Header;
+
