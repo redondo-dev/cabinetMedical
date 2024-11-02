@@ -39,6 +39,7 @@ export default function RootLayout({
             <main className="flex-1 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
               {children}
             </main>
+           
             <Footer className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white" />
           </div>
         </ThemeProvider>
