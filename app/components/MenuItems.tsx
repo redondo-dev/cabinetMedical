@@ -2,7 +2,6 @@ export const menuItems = [
   {
     title: "ACCEUIL",
     link: "/",
-    submenu: [{ title: "Acceuil", link: "/" }],
   },
   {
     title: "LE CENTRE",
