@@ -1,3 +1,4 @@
+// page.tsx 
 "use client"
 import Main  from "./components/Main"
 import ImageCarousel from"./components/ImageCarousel"
@@ -9,9 +10,9 @@ export default function Home() {
     <main className="flex-grow">
       <Main/>
       <ImageCarousel /> 
-       
+      <InfoSection/>  
     </main>
-    <InfoSection/>  
+    
     
   </div>
   );
