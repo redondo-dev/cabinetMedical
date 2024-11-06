@@ -1,0 +1,14 @@
+{
+  "welcome": "Welcome to Medical Aesthetic Laser Center",
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "services": {
+    "title": "Our Services",
+    "laser": "Laser Hair Removal",
+    "aesthetic": "Aesthetic Care"
+  }
+}

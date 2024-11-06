@@ -1,0 +1,16 @@
+{
+  "welcome": "Bienvenue au Cabinet Medical Esthétique Laser",
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "services": {
+    "title": "Nos Services",
+    "laser": "Épilation Laser",
+    "aesthetic": "Soins Esthétiques"
+  }
+}
+
+  

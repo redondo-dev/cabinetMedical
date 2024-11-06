@@ -1,4 +1,4 @@
-// app/layout.jsx
+// app/layout.tsx
 import type { Metadata } from "next";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -12,24 +12,29 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
 
+// Metadata configuration
 export const metadata: Metadata = {
-  title: "cabinet medical estethique lazer",
-  description: "epilation lazer",
+  title: "Cabinet Medical Esthétique Laser",
+  description: "Épilation laser et soins esthétiques professionnels",
+  keywords: ["épilation laser", "soins esthétiques", "médecine esthétique"],
+  authors: [{ name: "Cabinet Medical" }],
+  robots: "index, follow",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="fr">
+    <html>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen transition-colors duration-300 dark:bg-gray-900 dark:text-white`}
       >
@@ -39,7 +44,6 @@ export default function RootLayout({
             <main className="flex-1 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
               {children}
             </main>
-           
             <Footer className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white" />
           </div>
         </ThemeProvider>
@@ -47,3 +51,9 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+
+
+
+

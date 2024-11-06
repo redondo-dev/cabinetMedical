@@ -1,12 +1,12 @@
-import React from 'react'
-import Construction from '../components/Construction'
+import React from "react";
+import Construction from "../components/Construction";
 function page() {
   return (
-    <div>page qualite de peau
-
-<Construction />
+    <div>
+      page qualite de peau
+      <Construction />
     </div>
-  )
+  );
 }
 
-export default page
+export default page;

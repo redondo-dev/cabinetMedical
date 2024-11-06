@@ -1,6 +1,6 @@
 // app/contact/page.tsx
 
-import ContactForm from '../components/ContactForm/ContactFormClient'
+import ContactForm from "../components/ContactForm/ContactFormClient"
 
 export default function ContactPage() {
   return (
@@ -9,11 +9,12 @@ export default function ContactPage() {
         <div className="text-center mb-12">
           <h1 className="text-3xl font-bold text-gray-900">Contactez-nous</h1>
           <p className="mt-4 text-lg text-gray-600">
-            Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.
+            Remplissez le formulaire ci-dessous et nous vous répondrons dans les
+            plus brefs délais.
           </p>
         </div>
         <ContactForm />
       </div>
     </main>
-  )
+  );
 }

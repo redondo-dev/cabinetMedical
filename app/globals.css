@@ -31,3 +31,28 @@ body {
 
 
 /* }  */ 
+/* styles/globals.css */
+
+.faq-container {
+  margin: 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.faq-item {
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.faq-item h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+.faq-item p {
+  font-size: 1rem;
+  color: #e32323;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
