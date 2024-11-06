@@ -4,7 +4,7 @@
 import dynamic from 'next/dynamic'
 
 const ContactFormClient = dynamic(() => import('./ContactFormClient'), {
-  ssr: false
+  ssr: true
 })
 
 export default function ContactForm() {
