@@ -1,30 +1,47 @@
+"use client "
 import Link from "next/link";
 
-function Footer({ className }) {
+export default function Footer({ className }) {
   return (
-    <footer className={`${className} border-t border-gray-200 dark:border-gray-700`}>
+    <footer
+      className={`${className} border-t border-gray-200 dark:border-gray-700`}
+    >
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="text-center sm:text-left">
-            <p className="text-lg font-medium text-gray-900 dark:text-red-500">À propos de nous</p>
+            <p className="text-lg font-medium text-gray-900 dark:text-red-500">
+              À propos de nous
+            </p>
             <ul className="mt-8 space-y-4 text-sm">
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="#">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="#"
+                >
                   Notre histoire
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="#">
-                  Rencontrez l'équipe
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="#"
+                >
+                  Rencontrez l&apos;équipe
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="#">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="#"
+                >
                   Nos médecins
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="#">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="#"
+                >
                   Carrière
                 </Link>
               </li>
@@ -32,25 +49,39 @@ function Footer({ className }) {
           </div>
 
           <div className="text-center sm:text-left">
-            <p className="text-lg font-medium text-gray-900 dark:text-red-500">Nos Services</p>
+            <p className="text-lg font-medium text-gray-900 dark:text-red-500">
+              Nos Services
+            </p>
             <ul className="mt-8 space-y-4 text-sm">
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="/lazer">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="/lazer"
+                >
                   Épilation Laser
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="/injection">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="/injection"
+                >
                   Injection
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="/qualite-de-peau">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="/qualite-de-peau"
+                >
                   Qualité de Peau
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="/tarifs">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="/tarifs"
+                >
                   Tarifs
                 </Link>
               </li>
@@ -58,30 +89,47 @@ function Footer({ className }) {
           </div>
 
           <div className="text-center sm:text-left">
-            <p className="text-lg font-medium text-gray-900 dark:text-red-500">Ressources</p>
+            <p className="text-lg font-medium text-gray-900 dark:text-red-500">
+              Ressources
+            </p>
             <ul className="mt-8 space-y-4 text-sm">
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="#">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="#"
+                >
                   Guides en ligne
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="#">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="#"
+                >
                   Notes de conférence
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="#">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="#"
+                >
                   Forum
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="#">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="#"
+                >
                   Téléchargements
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="#">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="#"
+                >
                   Événements à venir
                 </Link>
               </li>
@@ -89,20 +137,31 @@ function Footer({ className }) {
           </div>
 
           <div className="text-center sm:text-left">
-            <p className="text-lg font-medium text-gray-900 dark:text-red-500">Liens utiles</p>
+            <p className="text-lg font-medium text-gray-900 dark:text-red-500">
+              Liens utiles
+            </p>
             <ul className="mt-8 space-y-4 text-sm">
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="/faq">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="/faq"
+                >
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="/contact">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="/contact"
+                >
                   Nous contacter
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300" href="#">
+                <Link
+                  className="text-gray-700 dark:text-white transition hover:text-gray-700/75 dark:hover:text-gray-300"
+                  href="#"
+                >
                   Support
                 </Link>
               </li>
@@ -185,7 +244,8 @@ function Footer({ className }) {
             </div>
 
             <p className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:mt-0 sm:text-right">
-              Copyright &copy; {new Date().getFullYear()}. Tous droits réservés, Centre Laser Marseille 14ᵉ
+              Copyright &copy; {new Date().getFullYear()}. Tous droits réservés,
+              Centre Laser Marseille 14ᵉ
             </p>
           </div>
         </div>
@@ -193,7 +253,3 @@ function Footer({ className }) {
     </footer>
   );
 }
-
-export default Footer;
-
-
